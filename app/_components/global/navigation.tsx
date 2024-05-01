@@ -3,31 +3,35 @@ import Link from 'next/link'
 import React, { useEffect, useRef } from 'react';
 
 const NavigationHeader = () => {
-  const headerRef  = useRef(null); 
+  const headerRef = useRef(null);
 
-useEffect(() => {
-  let wasScrolled = window.pageYOffset > 20;
+  useEffect(() => {
+    let wasScrolled = window.pageYOffset > 20;
+    let initialized = false;
 
-  const handleScroll = () => {
-    const isScrolled = window.pageYOffset > 20;
-    if (isScrolled !== wasScrolled) {
-      wasScrolled = isScrolled;
-      if (isScrolled) {
-          console.log("heelo")
-        headerRef.current.classList.add("bg-black");
-        headerRef.current.style.backgroundColor = 'rgba(0,0,0,0.5)';
-      } else {
-        headerRef.current.style.backgroundColor = 'transparent';
+    const handleScroll = () => {
+      const isScrolled = window.pageYOffset > 20;
+      console.log(isScrolled, wasScrolled);
+
+      if (isScrolled !== (wasScrolled && initialized)) {
+        initialized = true;
+        wasScrolled = isScrolled;
+        if (isScrolled) {
+          headerRef.current.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        } else {
+          headerRef.current.style.backgroundColor = 'transparent';
+        }
       }
-    }
-  };
+    };
 
-  window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const links = [
     { href: '/', label: 'Home' },
     { href: '/docs', label: 'Docs' },
