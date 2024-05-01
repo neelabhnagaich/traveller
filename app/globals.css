@@ -17,3 +17,38 @@ section h2 {
   font-size: 40px;
   font-weight: 700;
 }
+
+
+.arrow-down {
+  height: 70px;
+  width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+.arrow-down img {
+  filter: brightness(0) invert(1);
+  animation: shake 0.8s linear infinite; 
+}
+
+
+.arrow-down img:hover {
+}
+
+
+@keyframes shake {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-2px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+
+.transparent-bg{
+  background-color: rgba(0,0,0,0.5)
+}
+header {
+  transition: background-color 0.4s;
+}
