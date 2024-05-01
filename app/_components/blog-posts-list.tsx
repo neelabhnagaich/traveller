@@ -1,10 +1,6 @@
 import Link from "next/link";
 
-
-type PropsType = {
-  posts: [];
-}
-export const BlogPostsList = ({ posts }: PropsType) => {
+export const BlogPostsList = ({ posts }) => {
   return (
     <ul>
       {posts?.map(({ date, title, slug }) => (
