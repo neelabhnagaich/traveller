@@ -20,22 +20,14 @@ section h2 {
 
 
 .arrow-down {
-  height: 70px;
-  width: 70px;
   left: 50%;
   transform: translateX(-50%);
-
 }
 
 .arrow-down img {
   filter: brightness(0) invert(1);
   animation: shake 0.8s linear infinite; 
 }
-
-
-.arrow-down img:hover {
-}
-
 
 @keyframes shake {
   0% { transform: translateY(0); }
