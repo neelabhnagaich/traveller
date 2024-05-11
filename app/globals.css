@@ -3,9 +3,22 @@
 @tailwind utilities;
 
 
-body{
-  background: #fdfbf1;
+@layer base {
+  :root {
+    --color-primary: 14 37 23;
+    --color-secondary: 0 0 0;
+  }
 }
+
+body {
+    color: rgb(14 37 23);
+    background: #fdfbf1;
+    font: 18px/1.3 Matter,Helvetica Neue,Arial,Helvetica,sans-serif;
+    min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
 section {
   background: #fdfbf1;
   text-align: center;
@@ -16,6 +29,17 @@ section {
 section h2 {
   font-size: 40px;
   font-weight: 700;
+}
+
+.h,.h1,.h2,.h3,.h4,.h5,.h6,.quote blockquote,h1,h2,h3,h4,h5,h6 {
+    font-family: Chromatic,Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-weight: 600;
+    margin: 0 0 .5em;
+    color: inherit
+}
+
+.h2,h2 {
+  letter-spacing: -0.75px;
 }
 
 
