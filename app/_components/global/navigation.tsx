@@ -22,7 +22,7 @@ const NavigationHeader = () => {
         initialized = true;
         wasScrolled = isScrolled;
         if (isScrolled) {
-          headerRef.current.style.backgroundColor = 'rgba(14,37,23,0.5)';
+          headerRef.current.style.backgroundColor = 'rgba(43, 45, 44,0.5)';
         } else {
           headerRef.current.style.backgroundColor = 'transparent';
         }
@@ -52,8 +52,6 @@ const NavigationHeader = () => {
   }, [open]);
 
   const bodyClick = (e) => {
-    console.log('body click', open);
-
     if(e.target.closest('button') !== menuOpener.current && e.target.closest('div') !== menuContainer.current){
       if(open){
         setOpen(false);
@@ -93,13 +91,13 @@ const NavigationHeader = () => {
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"  />
             </svg>
           </button>          
-            <div ref={menuContainer} className={`h-[100vh] w-72 bg-primary absolute top-0 left-0 transition-transform ${open ? 'translate-x-0': '-translate-x-full'}`}>
+            <div ref={menuContainer} className={`h-[100vh] w-72 bg-primary text-tertiary absolute top-0 left-0 transition-transform duration-300 ${open ? 'translate-x-0': '-translate-x-full'}`}>
               <ul className="md:flex items-center text-sm">
-                <li className='flex justify-center p-4 border-b-2 border-slate-50/50'>
+                <li className='flex justify-center p-4 border-b border-slate-50/50'>
                   <img src="/RI2-removebg-preview.png" alt="logo" className="w-40 h-40" />
                 </li>
                 {links.map(({ href, label }) => (
-                  <li key={href} className="p-4 border-b-2 border-slate-50/50">
+                  <li key={href} className="p-4 border-b border-slate-50/50">
                     <Link href={href}>{label}</Link>
                   </li>
                 ))}
